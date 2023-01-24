@@ -10,16 +10,17 @@ const server = http.createServer((request, response) => {
       .setHeader("Content-type", "application/json")
       .end(JSON.stringify(users));
 
-  if (method === "POST" && url === "/users")
+  if (method === "POST" && url === "/users") {
     users.push({
       id: 1,
       name: "John Doe",
       email: "johndoe@example.com",
     });
 
-  return response.end("Criação de usuários");
+    return response.writeHead(201).end();
+  }
 
-  return response.end("Hello world!");
+  return response.writeHead(404).end("Not Found!");
 });
 
 server.listen(3333);
