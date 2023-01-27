@@ -1,5 +1,3 @@
-// { "users": [...] }
-
 export class Database {
   #database = {};
 
